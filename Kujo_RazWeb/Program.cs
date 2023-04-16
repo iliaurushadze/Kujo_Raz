@@ -1,7 +1,20 @@
+using Kujo_RazWeb.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+//____________________________________________________________________________________________
+
+
+//Add DbContext as a service in our application.
+builder.Services.AddDbContext <ApplicationDbContext>(options => options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    ));
+
+//____________________________________________________________________________________________
 
 var app = builder.Build();
 
