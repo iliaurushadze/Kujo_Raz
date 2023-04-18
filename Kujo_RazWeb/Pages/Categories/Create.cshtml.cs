@@ -28,6 +28,7 @@ namespace Kujo_RazWeb.Pages.Categories
             { 
                 await _db.Category.AddAsync(Category);
                 await _db.SaveChangesAsync();
+                TempData["success"] = "Category Created Successfully";
                 return RedirectToPage("Index");
             }
             return Page();

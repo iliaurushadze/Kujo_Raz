@@ -26,6 +26,7 @@ namespace Kujo_RazWeb.Pages.Categories
                 {
                     _db.Category.Remove(categoryFromDb);
                     await _db.SaveChangesAsync();
+                    TempData["success"] = "Category Deleted Successfully";
                     return RedirectToPage("Index");
                 }
 
